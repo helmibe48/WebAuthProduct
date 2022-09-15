@@ -1,0 +1,41 @@
+GET http://localhost:5000/datapenjualan
+
+###
+
+GET http://localhost:5000/datapenjualan/3
+
+### 
+POST http://localhost:5000/datapenjualan 
+Content-Type: application/json
+
+{
+    "name": "Wipol2", 
+    "terjual": "10",
+    "tanggal": "1-05-2021"
+}
+
+### 
+PATCH http://localhost:5000/datapenjualan/4 
+Content-Type: application/json
+
+{
+    "name": "Teh", 
+    "terjual": "19",
+    "tanggal": "5-05-2021"
+}
+
+### 
+DELETE http://localhost:5000/datapenjualan/3
+
+###
+GET http://localhost:5000/databarang
+
+###
+POST http://localhost:5000/databarang 
+Content-Type: application/json
+
+{
+    "name": "Aqua2",  
+    "stok": "100",
+    "jenis": "Konsumsi"
+}
