@@ -15,8 +15,10 @@ const ProductList = () => {
   };
 
   const deleteProduct = async (productId) => {
-    await axios.delete(`http://localhost:5000/products/${productId}`);
-    getProducts();
+    if (window.confirm('Hapus Data Produk ?')) {
+      await axios.delete(`http://localhost:5000/products/${productId}`);
+      getProducts();
+    }
   };
 
   return (

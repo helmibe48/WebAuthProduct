@@ -29,11 +29,13 @@ const FormEditProduct = () => {
   const updateProduct = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:5000/products/${id}`, {
-        name: name,
-        price: price,
-      });
-      navigate("/products");
+      if (window.confirm('Ubah Data Produk ?')) {
+       await axios.patch(`http://localhost:5000/products/${id}`, {
+          name: name,
+          price: price,
+        });
+        navigate("/products");
+      }
     } catch (error) {
       if (error.response) {
         setMsg(error.response.data.msg);

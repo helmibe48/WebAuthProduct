@@ -1,41 +1,103 @@
-GET http://localhost:5000/datapenjualan
+// get semua users
+GET http://localhost:5000/users
 
+
+// get single users
 ###
+GET http://localhost:5000/users/895d8352-6dfb-4c2a-adf4-b5992ecb5f69
 
-GET http://localhost:5000/datapenjualan/3
 
+//Buat User Role Admin
+//Ketika pertama kali menjalankan aplikasi, hapus middleware di UserRoute.
 ### 
-POST http://localhost:5000/datapenjualan 
+POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-    "name": "Wipol2", 
-    "terjual": "10",
-    "tanggal": "1-05-2021"
+    "name": "Helmi", 
+    "email": "helmibe48@gmail.com",
+    "password": "123456",
+    "confPassword": "123456",
+    "role": "admin"
 }
 
+//Buat User Role User
 ### 
-PATCH http://localhost:5000/datapenjualan/4 
+POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-    "name": "Teh", 
-    "terjual": "19",
-    "tanggal": "5-05-2021"
+    "name": "Qtasnim", 
+    "email": "qtasnim@gmail.com",
+    "password": "123456",
+    "confPassword": "123456",
+    "role": "user"
 }
 
+//update user
 ### 
-DELETE http://localhost:5000/datapenjualan/3
-
-###
-GET http://localhost:5000/databarang
-
-###
-POST http://localhost:5000/databarang 
+PATCH http://localhost:5000/users/895d8352-6dfb-4c2a-adf4-b5992ecb5f69
 Content-Type: application/json
 
 {
-    "name": "Aqua2",  
-    "stok": "100",
-    "jenis": "Konsumsi"
+    "name": "PTBA", 
+    "email": "ptba@gmail.com",
+    "password": "",
+    "confPassword": "",
+    "role": "user"
 }
+
+//delete user
+### 
+DELETE http://localhost:5000/users/895d8352-6dfb-4c2a-adf4-b5992ecb5f69
+
+###
+//login user
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "helmibe48@gmail.com",
+    "password": "123456"
+}
+
+###
+//Lihat siapa yang login
+GET http://localhost:5000/me
+
+###
+//Logout Akun
+DELETE http://localhost:5000/logout
+
+
+###
+// Get Semua Produlk
+GET http://localhost:5000/products
+
+###
+// Get Satu Produk
+GET http://localhost:5000/products/62345c35-e3f0-4978-81f3-6c22fcf1574a
+
+###
+// Tambah Data Produk
+POST http://localhost:5000/products
+Content-Type: application/json
+
+{
+    "name": "Minyak",
+    "price": "150000"
+}
+
+###
+// Update Data Produk
+PATCH http://localhost:5000/products/62345c35-e3f0-4978-81f3-6c22fcf1574a
+Content-Type: application/json
+
+{
+    "name": "Minyak diupdate",
+    "price": "150000"
+}
+
+###
+// Hapus Data Produk
+DELETE http://localhost:5000/products/62345c35-e3f0-4978-81f3-6c22fcf1574a

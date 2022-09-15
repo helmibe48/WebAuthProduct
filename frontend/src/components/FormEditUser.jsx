@@ -31,14 +31,16 @@ const FormEditUser = () => {
   const updateUser = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:5000/users/${id}`, {
-        name: name,
-        email: email,
-        password: password,
-        confPassword: confPassword,
-        role: role,
-      });
-      navigate("/users");
+      if (window.confirm('Ubah Data User ?')) {
+       await axios.patch(`http://localhost:5000/users/${id}`, {
+          name: name,
+          email: email,
+          password: password,
+          confPassword: confPassword,
+          role: role,
+        });
+        navigate("/users");
+      }
     } catch (error) {
       if (error.response) {
         setMsg(error.response.data.msg);

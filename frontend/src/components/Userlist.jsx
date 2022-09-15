@@ -15,8 +15,10 @@ const Userlist = () => {
   };
 
   const deleteUser = async (userId) => {
-    await axios.delete(`http://localhost:5000/users/${userId}`);
-    getUsers();
+    if (window.confirm('Hapus User Ini ?')) {
+      await axios.delete(`http://localhost:5000/users/${userId}`);
+      getUsers();
+    }
   };
 
   return (
